@@ -8,8 +8,30 @@
 import SwiftUI
 
 struct CounterView: View {
+    
+    @State var count = 0
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack(spacing: 20) {
+            Button(action: {
+                count += 1
+            }, label: {
+                Image(systemName: "plus").resizable().frame(width: 15, height: 15)
+            })
+            Text("\(count)").font(.title)
+            Button(action: {
+                if count != 0 {
+                    count -= 1
+                }
+            }, label: {
+                Image(systemName: "minus").resizable().frame(width: 15, height: 2).contentShape(Rectangle())
+            })
+        }.foregroundColor(.black)
+            .background(Color("bgColor").opacity(0.15))
+        
+            .frame(width: 130, height: 50)
+            .cornerRadius(12)
+        
+           
     }
 }
 
